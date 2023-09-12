@@ -10,6 +10,11 @@ function guessNum() {
     let guess = prompt("Hi " + playerName + "! Guess a whole number between 0 and 10!");
     let number = Number(guess);
 
+    if (guess === null || playerRecord[playerName] === null) {
+      endGame(false); // Quit the game
+      return;
+    }
+
     if (isNaN(number)) {
       alert("Sorry " + playerName + ". You need to guess a number, not a string!");
     } else if (number < SECRET_NUMBER) {
